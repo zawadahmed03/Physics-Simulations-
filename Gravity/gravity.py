@@ -33,7 +33,9 @@ def fall():
     for ball in balls:
         g = 9.8
         h = 0.5*g*(ball.time)**2
-        if ball.y + h + ball.radius <= HEIGHT:
+        if ball.y + h + ball.radius > HEIGHT:
+            ball.y = ball.y + (h - (ball.y + h + ball.radius - HEIGHT))
+        else:
             ball.y = ball.y + h
 
 RUNNING = True
